@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<title>Emoji Moving Eyes Animation</title>
+<link rel="stylesheet" href="style.css">
+
+</html>
+
+<body>
+    <div class="container">
+        <a href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span> Animation Moving Eyes According to the Cursor || EXPOSED
+        </a>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+        <div class="face">
+            <div class="eyes">
+                <span class="eye"></span>
+                <span class="eye"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('body').addEventListener('mousemove', eyeball);
+
+        function eyeball() {
+            var eye = document.querySelectorAll('.eye');
+            eye.forEach(function(eye) {
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+                let radian = Math.atan2(event.pageX - x, event.pageY - y);
+                let rot = (radian * (180 / Math.PI) * -1) + 270;
+                eye.style.transform = "rotate(" + rot +
+                    "deg)";
+            })
+        }
+    </script>
+</body>
